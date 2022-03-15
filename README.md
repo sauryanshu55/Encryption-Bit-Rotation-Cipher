@@ -29,5 +29,8 @@ Error in reading file <> Doesn't either Exist, is corrupt, or is not a .txt file
 
 $> ./bitort
 Invalid number of arguments
+
+$> ./bitrot <filepath> decrypt
+Encryption failed
 ```
 <i> By Sauryanshu Khanal (Chhetri) </i>
