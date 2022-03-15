@@ -15,4 +15,8 @@ $> ./bitrot <FILEPATH OF THE FILE TO BE DECRYPTED FROM THE PREV ENC KEY> decrypt
 ```
 This command will create a file called unencrypted.txt in the local folder where the encrypted file with the same encryption key was located. <br>
 
+If gcc is not installed:<br>
+```
+$> gcc sudo apt install
+```
 <i> By Sauryanshu Khanal (Chhetri) </i>
