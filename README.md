@@ -19,7 +19,7 @@ If gcc is not installed:<br>
 ```
 $> gcc sudo apt install
 ```
-<b> Error </b>
+<b> ERROR RETURNS </b>
 ```
 $> ./bitrot <filepath> ENCRYPT
 Invalid Command
