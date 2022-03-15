@@ -19,4 +19,15 @@ If gcc is not installed:<br>
 ```
 $> gcc sudo apt install
 ```
+<b> Error </b>
+```
+$> ./bitrot <filepath> ENCRYPT
+Invalid Command
+
+$> ./bitrot <Non-existent, corrupt, incorrect, or incorrect extension filepath> decrypt
+Error in reading file <> Doesn't either Exist, is corrupt, or is not a .txt file.
+
+$> ./bitort
+Invalid number of arguments
+```
 <i> By Sauryanshu Khanal (Chhetri) </i>
