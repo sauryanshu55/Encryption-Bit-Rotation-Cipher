@@ -1,4 +1,4 @@
-// SAURYANSHU KHANAL, 15th March 2022
+// SAURYANSHU KHANAL (CHHETRI), 15th March 2022
 
 // Included Libraries
 #include <stdio.h>
