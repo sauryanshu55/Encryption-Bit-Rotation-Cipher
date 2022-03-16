@@ -1,4 +1,4 @@
-// SAURYANSHU KHANAL (CHHETRI), 15th March 2022
+// SAURYANSHU KHANAL, 15th March 2022
 
 // Included Libraries
 #include <stdio.h>
@@ -87,13 +87,39 @@ void decryptFile(char *infile_path, char *progName, unsigned int keyVal)
     fclose(p_FILE);
     fclose(p_enFILE);
 }
-bool checkArgs(int argNum)
+void showPreview(char *infile_path, int prevNum)
 {
+    FILE *pFILE;
+    pFILE = fopen(infile_path, "rb");
+    for (int i = 0; i <= 7; i++)
+    {
+        printf("key = %d: ", i);
+        for (int j = 0; j <= prevNum; j++)
+        {
+            char encrypted_char = fgetc(pFILE);
+            char decrypted_char = rightEncrypt(encrypted_char, i);
+            printf("%c", decrypted_char);
+        }
+        printf("\n");
+    }
+    fclose(pFILE);
+}
+bool checkArgs(int argNum, char *command)
+{
+    if (strcmp(command, "preview") == 0)
+    {
+        if (argNum == 4)
+        {
+            return true;
+        }
+        printf("Invalid number of arguments AND/OR invalid commands for: %s\n", command);
+        return false;
+    }
     if (argNum == 3)
     {
         return true;
     }
-    printf("Invalid number of arguments\n");
+    printf("Invalid number of arguments AND/OR invalid commands for: %s\n", command);
     return false;
 }
 // MAIN FUNCTION
@@ -104,10 +130,19 @@ void main(int argc, char *argv[])
     char *infile_path = argv[1];
     char *command = argv[2];
     int argNum = argc;
-    unsigned int keyVal = 100;
-
-    if (checkArgs(argNum))
+    unsigned int keyVal = 7;
+    int prevNum;
+    if (argNum == 4)
     {
+        char *prevNum_char = argv[3];
+        prevNum = atoi(prevNum_char);
+    }
+    if (checkArgs(argNum, command))
+    {
+        if (strcmp(command, "preview") == 0)
+        {
+            showPreview(infile_path, prevNum);
+        }
         if (strcmp(command, "encrypt") == 0)
         {
             encryptFile(infile_path, progName, keyVal);
@@ -116,9 +151,11 @@ void main(int argc, char *argv[])
         {
             decryptFile(infile_path, progName, keyVal);
         }
-        if (!((strcmp(command, "encrypt") == 0) || (strcmp(command, "decrypt") == 0)))
+        if (!((strcmp(command, "encrypt") == 0) || (strcmp(command, "decrypt") == 0) || (strcmp(command, "preview") == 0)))
         {
             printf("Invalid command: %s\n", command);
         }
     }
 }
+
+// 1: key 3??
